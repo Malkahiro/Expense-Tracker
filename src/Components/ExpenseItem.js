@@ -1,12 +1,21 @@
 import './ExpenseItem.css'
-const ExpenseItem = () => {
-    return (<div className='expense-item'>
-        <div>March 28th 2021</div>
+
+
+const ExpenseItem = ({expenses}) => {
+
+
+    return (expenses.map((expense) =>{
+        return (
+            <div className='expense-item'>
+        {/**Can't render normaly since this is an object */}
+        <div>{expense.date.toISOString()}</div>
         <div className='expense-item__description'>
-            <h2>Car Insurance</h2>
-            <div className='expense-item__price'>$294.67</div>
+            <h2>{expense.title}</h2>
+            <div className='expense-item__price'>{expense.amount}</div>
         </div>
-    </div>);
+    </div>
+        )
+    }));
 }
 
 export default ExpenseItem;
