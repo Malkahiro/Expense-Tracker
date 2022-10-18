@@ -1,11 +1,11 @@
 import './ExpenseDate.css'
 
-const ExpenseDate = ({expense}) => {
+const ExpenseDate = ({date}) => {
     /**toLocalString helps to output dates in a human readably way */
-    const month = expense.date.toLocaleString('en-US', {month: 'long'})
+    const month = date.toLocaleString('en-US', {month: 'long'})
     /**Extracts the year as a four digit number */
-    const year = expense.date.getFullYear();
-    const day = expense.date.toLocaleString('en-US', {day: '2-digit'})
+    const year = date.getFullYear();
+    const day = date.toLocaleString('en-US', {day: '2-digit'})
     return ( <div className="expense-date">
         <div className='expense-date__month'>{month}</div>
         <div className='expense-date__year'>{year}</div>
