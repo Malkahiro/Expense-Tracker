@@ -9,14 +9,15 @@ const Expense = ({expenses}) => {
 
 const handleFilterChange = (filterYear) =>{
     setFilteredYear(filterYear);
-    console.log(filterdYear);
 }
 
-    const expenseList = expenses.map((expense) =>{
+    const expenseList = expenses.filter((expense) =>{
+        return expense.date.getFullYear().toString() === filterdYear;
+    }).map((expense) =>{
         return <ExpenseItem expense={expense} key={expense.id}/>
     })
 
-
+    
     return ( 
         <div>
             <ExpensesFilter selectedYear = {filterdYear} onFilterChange={handleFilterChange}/>
