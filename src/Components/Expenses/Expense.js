@@ -22,7 +22,7 @@ const handleFilterChange = (filterYear) =>{
         <div>
             <ExpensesFilter selectedYear = {filterdYear} onFilterChange={handleFilterChange}/>
     <div className="expenses">
-        {expenseList}
+        {expenseList.length > 0 ? expenseList : <p className='expenses-list__fallback'>No Expenses Found</p>}
     </div> 
     </div>);
 }
